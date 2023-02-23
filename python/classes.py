@@ -14,7 +14,10 @@ class Car:
 
 
 class Driver:
-    def __init__(self):
+    def __init__(self, data):
+        self.name = data['name']
+        self.age = data['age']
+        self.car = data['car']
 
 
 
