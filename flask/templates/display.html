@@ -10,15 +10,25 @@
 </head>
 <body>
     <div class = 'container'>
-        <h1>
-            'Templates' Folder is required
-        </h1>
-        <h1>
-            Its the convention for python to locate the file
-        </h1>
-        <h3>
+        <h1>'Templates' Folder is required</h1>
+        <h1>Its the convention for python to locate the file</h1>
+        <a href = '/adv'>Go to the Advanced Page</a>
 
-        </h3>
+        {% if name == 'kaysee' %}
+            <h3>The name is : {{ name }}</h3>
+            <!-- This is how you display your {{ name }} while connecting with the backend -->
+            <!-- this displays info from /<name> route -->
+        {% elif name == 'rachel' %}
+            <h3>The name is : {{ name }}</h3>
+        {% else %}
+            <h3>Guess a different name</h3>
+        {% endif %}
+
+
+        {% for i in range(0, num, 1) %}
+            <h1 class="text-danger">{{ name }}</h1>
+            <!-- loops 8 times b/c the 'num' was set to 8 in server.py -->
+        {% endfor %}
     </div>
 
 

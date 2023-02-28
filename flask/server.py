@@ -21,12 +21,19 @@ def hello_world():
 
 
 
-@app.route('/hello/<name>')
+@app.route('/<name>')
 # PARAMETER with < > needs to be CASTED below
 def hello(name):
 # PARAMETER within function matches CASTED variable from ROUTE
-    return f'Hello { name }'
-
+    return render_template('display.html', name = name, num = 8)
+    # RENDER_TEMPLATE renders your basic HTML template
+    # RENDER_TEMPLATE requires TEMPLATES folder
+    # name ( pink )
+        # comes from the BACKEND
+        # connects with each parameter
+    # name ( green )
+        # comes from the set HTML ( display.html )
+        # pulls info from using jinja
 
 
 @app.route('/<int:number>')
@@ -35,13 +42,6 @@ def number(number):
 # PARAMETER within function matches CASTED variable from ROUTE
     newNum = number * 5
     return f'The number is { newNum }'
-
-
-
-@app.route('/display')
-def display():
-    return render_template('display.html')
-    # This renders your basic HTML template
 
 
 
@@ -57,11 +57,13 @@ def adv():
     # students = student_info
         # displays info from the backend
         # pass this into the RENDER_TEMPLATE
-    # student_info ( purple )
+    # student_info ( pink )
         # comes from the BACKEND
+        # connects with each parameter
     # students ( green )
         # comes from the set HTML
         # connects to the for loop
+        # pulls info from using jinja
 
 
 
