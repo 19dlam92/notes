@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, session
 app = Flask(__name__)
+app.secret_key = 'jijsdklnfosd'
 # Recognized after FLASK is installed
 # Flask
     # installed package for using Flask
@@ -8,9 +9,9 @@ app = Flask(__name__)
     # NEEDS to have HTML in the same name
         # refer to @app.route('/httpsresponse') return statement
 # request
-
+    # works together with form
 # redirect
-
+    # works together with form
 # session
 
 
@@ -66,7 +67,14 @@ def adv():
 
 @app.route('/form')
 def form():
-    return render_template('forms.html')
+
+    if 'username' not in session:
+        name = 'This is a Default Value'
+    else: 
+        name = session['username']
+
+    
+    return render_template('forms.html', name = name)
     # @app.route('/form')
     # AND
     # @app.route('/form/submit', methods = ['POST'])
@@ -76,11 +84,26 @@ def form():
 @app.route('/form/submit', methods = ['POST'])
 # methods = ['POST'] is REQUIRED for forms
 def the_form():
-    print(request.form)
+
+    session['username'] = request.form['username']
+    session['email'] = request.form['email']
+    session['password'] = request.form['password']
+    # request.form refers to our form info
+
     return redirect('/form')
     # here the info from the form is being processed
     # NEVER RENDER on a POST ROUTE
     # REDIRECT to the url the info is going
+    # REDIRECT only wants a url
+
+ 
+@app.route('/reset')
+def reset():
+    session.clear()
+    # this clears session
+    # 'logs out' current user
+    return redirect('/form')
+    #redirect to 'original' route
 
 
 if __name__ == '__main__':
