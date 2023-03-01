@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Bootstrap Link --><title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>Create a User</h1>
+        <!-- GET - render information -->
+        <!-- POST - submitting information -->
+            <!-- typically with forms or redirecting -->
+        <!-- PUT - updating information -->
+        <!-- DELETE - deleting information -->
+        
+        <form action="/form/submit" method="POST">
+        <!-- action = 'location where info IS GOING to be sent' -->
+        <!-- method = 'form action - GET (default), POST, PUT, DELETE' -->
+
+            <label class="" for="username">Userame: </label>
+            <input type="text" name="username">
+            <!-- name = '' MATCHES for = '' -->
+            <!-- also MATCHES with REQUEST.FORM in the directed route -->
+            <!-- in this case its /form/submit -->
+
+            <label class="" for="email">Email: </label>
+            <input type="text" name="email">
+            <!-- name = '' MATCHES for = '' -->
+            <!-- also MATCHES with REQUEST.FORM in the directed route -->
+            <!-- in this case its /form/submit -->
+
+            <label class="" for="password">Password: </label>
+            <input type="text" name="password">
+            <!-- name = '' MATCHES for = '' -->
+            <!-- also MATCHES with REQUEST.FORM in the directed route -->
+            <!-- in this case its /form/submit -->
+
+            <input class="btn btn-primary" type="submit" value="Create User">
+            <!-- each form needs a SUBMIT type INPUT -->
+            <!-- this triggers the form being sent -->
+            <!-- value = 'name of the button' -->
+
+        </form>
+    </div>
+    <!-- GET - render information -->
+    <!-- POST - submitting information -->
+        <!-- typically with forms or redirecting -->
+    <!-- PUT - updating information -->
+    <!-- DELETE - deleting information -->
+</body>
+</html>

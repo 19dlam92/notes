@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect
 app = Flask(__name__)
 # Recognized after FLASK is installed
 # Flask
@@ -7,11 +7,11 @@ app = Flask(__name__)
     # required import to connect HTML and ROUTING
     # NEEDS to have HTML in the same name
         # refer to @app.route('/httpsresponse') return statement
+# request
+
 # redirect
 
 # session
-
-# request
 
 
 
@@ -19,6 +19,13 @@ app = Flask(__name__)
 def hello_world():
     return 'Hello World'
 
+
+@app.route('/<int:number>')
+# PARAMETER with < > needs to be CASTED below
+def number(number):
+# PARAMETER within function matches CASTED variable from ROUTE
+    newNum = number * 5
+    return f'The number is { newNum }'
 
 
 @app.route('/<name>')
@@ -34,15 +41,6 @@ def hello(name):
     # name ( green )
         # comes from the set HTML ( display.html )
         # pulls info from using jinja
-
-
-@app.route('/<int:number>')
-# PARAMETER with < > needs to be CASTED below
-def number(number):
-# PARAMETER within function matches CASTED variable from ROUTE
-    newNum = number * 5
-    return f'The number is { newNum }'
-
 
 
 @app.route('/adv')
@@ -66,6 +64,23 @@ def adv():
         # pulls info from using jinja
 
 
+@app.route('/form')
+def form():
+    return render_template('forms.html')
+    # @app.route('/form')
+    # AND
+    # @app.route('/form/submit', methods = ['POST'])
+    # function together
+    # RENDER then REDIRECT
+
+@app.route('/form/submit', methods = ['POST'])
+# methods = ['POST'] is REQUIRED for forms
+def the_form():
+    print(request.form)
+    return redirect('/form')
+    # here the info from the form is being processed
+    # NEVER RENDER on a POST ROUTE
+    # REDIRECT to the url the info is going
 
 
 if __name__ == '__main__':
