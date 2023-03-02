@@ -21,6 +21,10 @@
         # PK - primary key
         # NN - not null
         # AI - auto increment
+    # AVOID key words for column naming
+
+# PK - primary key
+    # should ALWAYS be id
     # any given table only has ONE PRIMARY KEY
 
 # foreign key
@@ -35,12 +39,38 @@
     # flat - registers as ONE
     # fork - registers as MANY
 
+# many to many
+    # create a 'center' table 
+        # with contents of . . . .
+        # id
+        # created_at
+        # updated_at
+        # primary key(s)
+    # naming
+        # table_other_table
+        # plural
+
 # data types
     # VARCHAR
+        # passwords - set to VARCHAR(255)
+        # due to encryption creating a massive set of characters
     # CHAR
-    # INT
-    # TINYINT
-    # BIGINT
-    # FLOAT
+        # VARCHAR with tiny limit
+        # states / airports
     # TEXT
+        # basically VARCHAR with no limit
+    # INT
+        # expecting values up to 9_999_999_999
+        # BIGINT goes further
+        # unsigned
+            # positive numbers
+        # signed
+            # positive and negative numbers
+    # TINYINT
+        # can potentially achieve booleans
+        # 0 - False
+        # 1 - True
     # DATETIME
+        # created_at - NOW()
+        # updated_at - UPDATED NOW()
+    # etc . . . . 
