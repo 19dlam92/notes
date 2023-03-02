@@ -16,7 +16,7 @@
         # created_at - DATETIME
             # default/expression - NOW()
         # updated_at - DATETIME
-            # default/expression - UPDATE NOW()
+            # default/expression - NOW() ON UPDATE NOW()
     # general 'checkboxes'
         # PK - primary key
         # NN - not null
@@ -43,8 +43,8 @@
     # create a 'center' table 
         # with contents of . . . .
         # id
-        # created_at
-        # updated_at
+        # created_at - NOW()
+        # updated_at - NOW() ON UPDATE NOW()
         # primary key(s)
     # naming
         # table_other_table
@@ -72,5 +72,50 @@
         # 1 - True
     # DATETIME
         # created_at - NOW()
-        # updated_at - UPDATED NOW()
+        # updated_at - NOW() ON UPDATE NOW()
     # etc . . . . 
+
+# delete type cascade
+    # if user is deleted 'posts' are also deleted
+    # if cascade is not set 'posts' float in internet limbo
+
+
+# ==========================================================
+# QUERIES / SYNTAX
+# ==========================================================
+
+# basic CRUD queries
+
+'''
+SELECT * FROM table
+WHERE condition(s)
+'''
+
+'''
+SELECT * FROM table
+JOIN other_table
+ON table.id = foreign_key
+WHERE condition(s)
+'''
+
+'''
+INSERT INTO table (column)
+VALUE $(column)s
+'''
+
+'''
+UPDATE table SET
+column = value
+WHERE condition(s)
+'''
+
+'''
+DELETE FROM table
+WHERE condition(s)
+'''
+
+# ORDER BY column ASC
+# ORDER BY column DESC
+# WHERE id > . . . .
+# WHERE id < . . . .
+# WHERE id = . . . . OR id = . . . .
