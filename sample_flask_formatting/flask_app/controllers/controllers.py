@@ -1,9 +1,15 @@
-from flask import Flask, render_template, request, redirect, session
-app = Flask(__name__)
-app.secret_key = 'jijsdklnfosd'
-# Recognized after FLASK is installed
-# Flask
-    # installed package for using Flask
+from flask_app import app
+from flask import render_template, redirect, request, session
+from flask_app.models.user import User
+from flask_bcrypt import Bcrypt
+
+bcrypt = Bcrypt(app)
+
+
+# ==========================================================
+# ROUTES
+# ==========================================================
+
 # render_template
     # required import to connect HTML and ROUTING
     # NEEDS to have HTML in the same name
@@ -13,6 +19,11 @@ app.secret_key = 'jijsdklnfosd'
 # redirect
     # works together with form
 # session
+
+# naming convention
+    # file name
+        # plural
+
 
 
 
@@ -96,7 +107,7 @@ def the_form():
     # REDIRECT to the url the info is going
     # REDIRECT only wants a url
 
- 
+
 @app.route('/reset')
 def reset():
     session.clear()
@@ -104,8 +115,3 @@ def reset():
     # 'logs out' current user
     return redirect('/form')
     #redirect to 'original' route
-
-
-if __name__ == '__main__':
-    app.run(debug = True)
-# This triggers our app to run
