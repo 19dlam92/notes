@@ -59,9 +59,9 @@ class User:
     @classmethod
     def get_one_user(cls):
         query = '''
-                
+                SELECT * FROM users WHERE id = %(user_id)s;
                 '''
-
+        results = connectToMySQL('users_schema').query.db(query, data)
 
 
 
