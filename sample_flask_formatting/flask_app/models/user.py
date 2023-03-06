@@ -29,10 +29,11 @@ class User:
     @classmethod
     def create_user(cls, data):
         query = '''
-                INSERT INTO table 
-
+                INSERT INTO users 
+                VALUES
+                (%(first_name)s, %(last_name)s, %(email)s, %(password)s, %(confirm_password)s);
                 '''
-
+        results = connectToMySQL('users_schema').query.db(query, data)
 
 
 
@@ -44,8 +45,7 @@ class User:
     @classmethod
     def get_all_users(cls):
         query = '''
-                SELECT * FROM users
-
+                SELECT * FROM users;
                 '''
         results = connectToMySQL('users_schema').query.db(query)
         all_users = []
@@ -57,9 +57,10 @@ class User:
 # ==========================================================
 
     @classmethod
-    def get_one_user(cls):
+    def get_one_user(cls, data):
         query = '''
-                SELECT * FROM users WHERE id = %(user_id)s;
+                SELECT * FROM users
+                WHERE id = %(user_id)s;
                 '''
         results = connectToMySQL('users_schema').query.db(query, data)
 
@@ -70,12 +71,14 @@ class User:
 # ==========================================================
 
     @classmethod
-    def update_user(cls):
+    def update_user(cls, data):
         query = '''
                 UPDATE users SET
-
+                (first_name), (last_name), (email), (password), (confirm_password)
+                WHERE
+                (%(first_name)s, %(last_name)s, %(email)s, %(password)s, %(confirm_password)s)
                 '''
-        
+        results = connectToMySQL('users_schema').query.db(query, data)
 
 
 
@@ -85,9 +88,9 @@ class User:
 # ==========================================================
 
     @classmethod
-    def delete_user(cls):
+    def delete_user(cls, data):
         query = '''
                 DELETE FROM users
-                WHERE $(id)s;
+                WHERE id = %(id)s;
                 '''
-
+        results = connectToMySQL('users_schema').query.db(query, data)

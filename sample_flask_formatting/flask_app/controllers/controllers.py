@@ -98,6 +98,7 @@ def the_form():
     session['email'] = request.form['email']
     session['password'] = request.form['password']
     # request.form refers to our form info
+        # should match name = '' field on html
 
     return redirect('/form')
     # here the info from the form is being processed
