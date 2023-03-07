@@ -4,9 +4,6 @@ import re
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 
 
-# ==========================================================
-# VALIDATION
-# ==========================================================
 
 
 
@@ -94,3 +91,12 @@ class User:
                 WHERE id = %(id)s;
                 '''
         results = connectToMySQL('users_schema').query.db(query, data)
+
+
+
+# ==========================================================
+# VALIDATION
+# ==========================================================
+
+    @staticmethod
+    def validate_user():
