@@ -113,4 +113,4 @@ def reset():
     # this clears session
     # 'logs out' current user
     return redirect('/form')
-    #redirect to 'original' route
+    #redirect to 'original / logout' route

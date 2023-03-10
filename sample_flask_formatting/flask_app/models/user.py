@@ -16,7 +16,8 @@ class User:
         self.password = data['password']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
-
+        # self.other_table = []
+            # this is data from the other_table
 
 
 # ==========================================================

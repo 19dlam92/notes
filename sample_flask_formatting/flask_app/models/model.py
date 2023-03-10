@@ -1,5 +1,10 @@
 from flask_app.config.mysqlconnection import connectToMySQL
-from flask_app.models.user import User
+from flask_app.models.user import user
+    # import User
+        # pulls the class
+    # import user
+        # pulls the whole framework of the file
+
 
 
 # ==========================================================
@@ -16,6 +21,7 @@ from flask_app.models.user import User
 # ==========================================================
 # THIS CLASS IS JUST FOR NOTES
 # ==========================================================
+
 class Model:
     def __init__(self, data):
         # data of . . . . columns of database
